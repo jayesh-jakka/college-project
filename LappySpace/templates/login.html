@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -68,8 +69,8 @@
                                                 Password
                                             </label>
                                         </div>
-                                        {% load socialaccount %}
-                                        <a href="{% provider_login_url 'google' %}">Login</a>
+                                        {% comment %} {% load socialaccount %}
+                                        <a href="{% provider_login_url 'google' %}">Login</a> {% endcomment %}
                                         <!--Submit button-->
                                         <div class="mb-12 pb-1 pt-1 text-center">
                                             <input 
@@ -97,7 +98,7 @@
 
                                 <div class=" bg-transparent text-white">
 
-                                    <img src="..//static/opening.jpg" class="w-full lg:h-full lg:w-full  opacity-100">
+                                    <img src={% static "images/opening.jpg" %} class="w-full lg:h-full lg:w-full  opacity-100">
 
 
                                 </div>
