@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <title>Laptop Service Center</title>
+</head>
+<body>
+    {% comment %} <nav class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 "> {% endcomment %}
+        {% comment %} <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+          <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+            <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo">
+            <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">LappySpace</span>
+          </a>
+          <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse flex-row-reverse">
+           {% if show %}
+     
+            <a href="logout">
+              <button type="button" class="text-white bg-[#9333ea]  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2 text-center ml-10 dark:focus:ring-blue-800">Logout</button></a>
+              {% endif %}
+              <a href="admins">
+                <button type="button" class="text-white bg-[#9333ea]  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2 text-center ml-10 dark:focus:ring-blue-800">Admin</button></a>
+              <a href = "service"><button type="button" class="text-white bg-[#9333ea]  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2 text-center ml-10 dark:focus:ring-blue-800">Book Service</button></a>
+              <button data-collapse-toggle="navbar-sticky" type="button"
+              class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+              aria-controls="navbar-sticky" aria-expanded="false">
+              <span class="sr-only">Open main menu</span>
+              <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M1 1h15M1 7h15M1 13h15" />
+              </svg>
+            </button>
+          
+          <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+            <ul
+              class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+              <li>
+                <a href="#"
+                  class="block py-2 px-3 text-white rounded md:bg-transparent md:text-blue md:p-0 md:dark:text-blue-500"
+                  aria-current="page">Home</a>
+              </li>
+              <li>
+                <a href="../about"
+                  class="block py-2 px-3 text-blue-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About Us</a>
+              </li>
+              <li>
+                <a href="service"
+                  class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Services</a>
+              </li>
+              {% comment %} <li>
+                <a href="contact"
+                  class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
+              </li> {% endcomment %}
+              {% comment %} <li>
+                <a href="track"
+                  class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Track </a>
+              </li>
+            </ul>
+          </div> {% endcomment %}
+        {% comment %} </div>
+        </div>
+      </nav>  {% endcomment %}
+
+<!-- Hero Section -->
+<section class="py-14 lg:py-24 relative z-0 bg-gray-50">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative text-center">
+        <h1 class="max-w-2xl mx-auto text-center font-manrope font-bold text-4xl text-gray-900 mb-5 md:text-5xl md:leading-normal">
+            Expert Laptop Repair Services with <span class="text-indigo-600">Fast Turnaround</span>
+        </h1>
+        <p class="max-w-sm mx-auto text-center text-base font-normal leading-7 text-gray-500 mb-9">
+            Get your laptop fixed quickly and efficiently with our expert repair services. Quality service guaranteed!
+        </p>
+    </div>
+</section>
+
+<!-- About Us Section -->
+<section class="py-14 lg:py-24 relative">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-9">
+            <div class="img-box">
+                <img src="https://media.vyaparify.com/vcards/products/44046/Repair_or_replace_laptop.png" alt="Laptop Repair Service" class="max-lg:mx-auto">
+            </div>
+            <div class="lg:pl-[100px] flex items-center">
+                <div class="data w-full">
+                    <h2 class="font-manrope font-bold text-4xl lg:text-5xl text-black mb-9 max-lg:text-center relative">
+                        About Us
+                    </h2>
+                    <p class="font-normal text-xl leading-8 text-gray-500 max-lg:text-center max-w-2xl mx-auto">
+                        At our service center, we specialize in all types of laptop repairs. Our skilled technicians use the latest technology to diagnose and fix issues efficiently. From hardware upgrades to software troubleshooting, we ensure top-notch service and customer satisfaction.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Our Experience Section -->
+<section class="py-14 lg:py-24 relative">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative">
+        <div class="grid grid-cols-1 lg:grid-cols-2 lg:gap-9">
+            <div class="lg:pr-24 flex items-center">
+                <div class="data w-full">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_ZzCjSFn8qUGxQkQmXtjwBoaSKIBQRQ89HQ&s" alt="Our Technician" class="block lg:hidden mb-9 mx-auto">
+                    <h2 class="font-manrope font-bold text-4xl lg:text-5xl text-black mb-9 max-lg:text-center">
+                        Our Expertise Since 2010
+                    </h2>
+                    <p class="font-normal text-xl leading-8 text-gray-500 max-lg:text-center max-w-2xl mx-auto">
+                        Since 2010, we have been providing reliable and efficient laptop repair services. Our team of experienced technicians is committed to offering fast and effective solutions for any laptop issue. We take pride in our work and always strive for excellence.
+                    </p>
+                </div>
+            </div>
+            <div class="img-box">
+                <img src="https://servicemypc.com/wp-content/uploads/2022/05/Laptop-Repair-in-Mahim-Junction-Service-my-pc.jpg" alt="Repair Tools" class="hidden lg:block">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Results Section -->
+<section class="py-20 bg-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <h2 class="font-manrope text-4xl text-center text-gray-900 font-bold mb-14">Our Impact in Numbers</h2>
+        <div class="flex flex-col gap-5 xl:gap-8 lg:flex-row lg:justify-between">
+            <div class="w-full max-lg:max-w-2xl mx-auto lg:mx-0 lg:w-1/3 bg-white p-6 rounded-2xl shadow-md shadow-gray-100">
+                <div class="flex gap-5">
+                    <div class="font-manrope text-2xl font-bold text-indigo-600">
+                        98%
+                    </div>
+                    <div class="flex-1">
+                        <h4 class="text-xl text-gray-900 font-semibold mb-2">Customer Satisfaction</h4>
+                        <p class="text-xs text-gray-500 leading-5">Our customers are highly satisfied with our prompt and efficient repair services. We focus on delivering quality and excellence in every service we provide.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full max-lg:max-w-2xl mx-auto lg:mx-0 lg:w-1/3 bg-white p-6 rounded-2xl shadow-md shadow-gray-100">
+                <div class="flex gap-5">
+                    <div class="font-manrope text-2xl font-bold text-indigo-600">
+                        500+
+                    </div>
+                    <div class="flex-1">
+                        <h4 class="text-xl text-gray-900 font-semibold mb-2">Laptops Repaired</h4>
+                        <p class="text-xs text-gray-500 leading-5">We have successfully repaired over 500 laptops, ensuring each device receives the best care and repair services.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full max-lg:max-w-2xl mx-auto lg:mx-0 lg:w-1/3 bg-white p-6 rounded-2xl shadow-md shadow-gray-100">
+                <div class="flex gap-5">
+                    <div class="font-manrope text-2xl font-bold text-indigo-600">
+                        24/7
+                    </div>
+                    <div class="flex-1">
+                        <h4 class="text-xl text-gray-900 font-semibold mb-2">Availability</h4>
+                        <p class="text-xs text-gray-500 leading-5">Our repair services are available 24/7 to address any urgent issues and provide timely solutions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="py-14 lg:py-24 bg-gray-50">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative">
+        <div class="mb-16 rounded-full">
+            <h2 class="text-4xl font-manrope font-bold text-gray-900 text-center">What Our Customers Say!</h2>
+        </div>
+
+        <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper mySwiper2">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="relative mb-20">
+                        <div class="max-w-max mx-auto lg:max-w-4xl">
+                            <p class="text-lg text-gray-500 leading-8 mb-8 text-center">
+                                "The repair service was exceptional. My laptop was fixed within hours, and the staff was incredibly professional. Highly recommend!"
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="relative mb-20">
+                        <div class="max-w-max mx-auto lg:max-w-4xl">
+                            <p class="text-lg text-gray-500 leading-8 mb-8 text-center">
+                                "Great experience! The technicians were knowledgeable and provided a quick solution to my laptop issue. Excellent service overall."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="relative mb-20">
+                        <div class="max-w-max mx-auto lg:max-w-4xl">
+                            <p class="text-lg text-gray-500 leading-8 mb-8 text-center">
+                                "Fast and reliable service. My laptop is working perfectly now, and I appreciate the prompt response and effective repair."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+<!-- Contact Us Section (Optional) -->
+{% comment %} <section class="py-14 lg:py-24 relative">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative">
+        <div class="text-center">
+            <h2 class="text-4xl font-manrope font-bold text-gray-900 mb-9">Contact Us</h2>
+            <form action="#" method="POST" class="mx-auto max-w-md space-y-6">
+                <div>
+                    <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+                    <input type="text" id="name" name="name" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" required>
+                </div>
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                    <input type="email" id="email" name="email" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" required>
+                </div>
+                <div>
+                    <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
+                    <textarea id="message" name="message" rows="4" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" required></textarea>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        Send Message
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section> {% endcomment %}
+
+<!-- Swiper JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+    var swiper = new Swiper(".mySwiper2", {
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+    });
+    var swiper = new Swiper(".mySwiper", {
+        spaceBetween: 10,
+        slidesPerView: 3,
+        freeMode: true,
+        watchSlidesProgress: true,
+    });
+</script>
+</body>
+</html>

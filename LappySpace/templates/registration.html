@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+<body>
+  {% if error %}
+      <!-- Toast -->
+      <div class="p-4 text-sm text-red-800 rounded-lg bg-red-200 dark:bg-gray-800 dark:text-red-400" role="alert">
+        <span class="font-medium">Error! </span>{{error}}
+      </div>
+  {% endif %}
+    <div class="min-h-screen py-40" style="background-image: linear-gradient(115deg, #9F7AEA, #FEE2FE)">
+        <div class="container mx-auto">
+          <!-- wrapper  -->
+          <div class="flex flex-col lg:flex-row w-10/12 lg:w-8/12 bg-white rounded-xl mx-auto shadow-lg overflow-hidden">
+            <!-- left  -->
+            <div class="w-full lg:w-1/2 flex flex-col items-center justify-center p-12 bg-no-repeat bg-center bg-cover" style="background-image: url('https://jmdevelopments77.files.wordpress.com/2020/11/pexels-photo-572897.jpeg')">
+              <h1 class="text-white text-3xl font-bold mb-3">Welcome</h1>
+              <div>
+                <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean suspendisse aliquam varius rutrum purus maecenas ac <a href="#" class="text-purple-500 font-semibold">Learn more</a></p>
+              </div>
+            </div>
+            <!-- right  -->
+            <div class="w-full lg:w-1/2 py-16 px-12">
+              <h2 class="text-3xl mb-4">Register</h2>
+              <p class="mb-4">Create your account. It’s free and only takes a minute.</p>
+              <form action="" method="post" id="registrationForm">
+                {% csrf_token %}
+                  <div class="grid grid-cols-2 gap-5">
+                    <input type="text" class="border border-gray-400 py-1 px-2 w-80" placeholder="First Name" name="name" required maxlength="100">
+                  </div>
+                  <div class="grid grid-cols-2 gap-5 mt-5">
+                    <input type="text" class="border border-gray-400 py-1 px-2 w-80" placeholder="Address" name="address" required maxlength="255">
+                  </div>
+                  <div class="grid grid-cols-2 gap-5 mt-5">
+                    <input type="text" class="border border-gray-400 py-1 px-2 w-80" placeholder="Contact" name="contact" required pattern="\d{10}" title="Contact number must be 10 digits">
+                  </div>
+                  <div class="mt-5">
+                    <input type="email" placeholder="Email" class="border border-gray-400 py-1 px-2 w-80" name="email" required>
+                  </div>
+                  <div class="mt-5">
+                    <input type="password" placeholder="Password" class="border border-gray-400 py-1 px-2 w-80" name="password" required minlength="8" maxlength="20">
+                  </div>
+                  <div class="mt-5">
+                    <!-- <input type="password" placeholder="Confirm Password" class="border border-gray-400 py-1 px-2 w-80"> -->
+                  </div>
+                  <div class="mt-5">
+                    <input type="checkbox" class="border border-gray-400" name="terms" required>
+                    <span>
+                      I accept the <a href="#" class="text-purple-500 font-semibold">Terms of Use</a> & <a href="#" class="text-purple-500 font-semibold">Privacy Policy</a> 
+                    </span>
+                  </div>
+                  <div class="mt-5">
+                    <input type="submit" value="Register" class="bg-purple-500 w-full text-center text-white py-3">
+                  </div>
+              </form>
+            </div>
+          </div>
+        </div>
+    </div>
+    <script>
+      // JavaScript for custom validation messages or additional checks
+      document.getElementById('registrationForm').addEventListener('submit', function(event) {
+        var form = event.target;
+        var password = form.password.value;
+        var confirmPassword = form.confirm_password ? form.confirm_password.value : '';
+
+        if (confirmPassword && password !== confirmPassword) {
+          alert('Passwords do not match.');
+          event.preventDefault(); // Prevent form submission
+        }
+      });
+    </script>
+</body>
+</html>

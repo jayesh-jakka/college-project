@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking Form</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    .form-container {
+      background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+    }
+
+    .btn-submit {
+      background-color: #4caf50;
+    }
+
+    .btn-submit:hover {
+      background-color: #388e3c;
+    }
+
+    .estimate-box {
+      border: 2px solid #4caf50;
+    }
+      .alert {
+          padding: 10px;
+          border-radius: 5px;
+          margin-bottom: 10px;
+          color: #fff;
+      }
+      .alert-error {
+          background-color: #f44336; /* Red */
+      }
+      .alert-success {
+          background-color: #4caf50; /* Green */
+      }
+      .alert-info {
+          background-color: #2196f3; /* Blue */
+      }
+      .alert-warning {
+          background-color: #ff9800; /* Orange */
+      }
+  
+  </style>
+</head>
+
+<body class="bg-gray-300">
+  {% comment %} <nav class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 ">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+      <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+        <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo">
+        <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">LappySpace</span>
+      </a>
+      <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse flex-row-reverse">
+       {% if show %}
+ 
+        <a href="logout">
+          <button type="button" class="text-white bg-[#9333ea]  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2 text-center ml-10 dark:focus:ring-blue-800">Logout</button></a>
+          {% endif %}
+          <a href="admins">
+            <button type="button" class="text-white bg-[#9333ea]  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2 text-center ml-10 dark:focus:ring-blue-800">Admin</button></a>
+          <a href = "service"><button type="button" class="text-white bg-[#9333ea]  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2 text-center ml-10 dark:focus:ring-blue-800">Book Service</button></a>
+          <button data-collapse-toggle="navbar-sticky" type="button"
+          class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          aria-controls="navbar-sticky" aria-expanded="false">
+          <span class="sr-only">Open main menu</span>
+          <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M1 1h15M1 7h15M1 13h15" />
+          </svg>
+        </button>
+      
+      <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+        <ul
+          class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+          <li>
+            <a href="#"
+              class="block py-2 px-3 text-gray-900 rounded md:bg-transparent md:text-black md:p-0 md:dark:text-blue-500"
+              aria-current="page">Home</a>
+          </li>
+          <li>
+            <a href="about"
+              class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About Us</a>
+          </li>
+          <li>
+            <a href="service"
+              class="block py-2 px-3 text-blue-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Services</a>
+          </li>
+          {% comment %} <li>
+            <a href="contact"
+              class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
+          </li> {% endcomment %}
+          {% comment %} <li>
+            <a href="track"
+              class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Track </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    </div> {% endcomment %}
+  {% comment %} </nav> {% endcomment %} 
+
+
+  
+  {% if messages %}
+  <div class="messages">
+      {% for message in messages %}
+          <div class="alert alert-{{ message.tags }}">
+              {{ message }}
+          </div>
+      {% endfor %}
+  </div>
+{% endif %}
+{% if success %}
+<!-- Toast -->
+<div class="p-4 text-sm text-green-800  bg-green-400 dark:bg-gray-800 dark:text-red-400" role="alert">
+  <span class="font-medium">Success </span>{{success}}
+</div>
+{% endif %}
+  <div id="form-container" class="container mx-auto my-10 p-8 bg-white rounded-lg shadow-lg max-w-3xl form-container">
+
+    <form action="" method="post">
+      {% csrf_token %}
+      <input type="hidden" name="c_id_id" value="{{ c_id_id }}">
+
+      <!-- Laptop Details -->
+      <div class="mb-8">
+        <h2 class="text-2xl font-bold text-gray-800">Laptop Details</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- Laptop Company -->
+          <div>
+            <label class="block text-gray-700 font-semibold">Laptop Company *</label>
+            <input type="text" id="laptopCompany" name="l_name" placeholder="e.g., Dell, HP, Lenovo"
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+              required>
+          </div>
+          <!-- Laptop Model -->
+          <div>
+            <label class="block text-gray-700 font-semibold">Laptop Model *</label>
+            <input type="text" id="laptopModel" name="l_model" placeholder="e.g., XPS 15, Pavilion 14"
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+              required>
+          </div>
+        </div>
+
+        <!-- Laptop Issues -->
+        <div class="mt-6">
+          <label class="block text-gray-700 font-semibold">Laptop Issues *</label>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
+            <div class="flex items-center">
+              <input type="checkbox" id="issue1" name="issue" value="battery issue" class="form-checkbox text-green-500 mr-2">
+              <label for="issue1" class="text-gray-700">Battery Issues</label>
+            </div>
+            <div class="flex items-center">
+              <input type="checkbox" id="issue2" name="issue" value="screen damage" class="form-checkbox text-green-500 mr-2">
+              <label for="issue2" class="text-gray-700">Screen Damage</label>
+            </div>
+            <div class="flex items-center">
+              <input type="checkbox" id="issue3" name="issue" value="keyboard not working" class="form-checkbox text-green-500 mr-2">
+              <label for="issue3" class="text-gray-700">Keyboard Not Working</label>
+            </div>
+            <div class="flex items-center">
+              <input type="checkbox" id="issue4" name="issue" value="overheating" class="form-checkbox text-green-500 mr-2">
+              <label for="issue4" class="text-gray-700">Overheating</label>
+            </div>
+            <div class="flex items-center">
+              <input type="checkbox" id="issue5" name="issue" value="software issues" class="form-checkbox text-green-500 mr-2">
+              <label for="issue5" class="text-gray-700">Software Issues</label>
+            </div>
+            <div class="flex items-center">
+              <input type="checkbox" id="issue6" name="issue" value="hard drive failure" class="form-checkbox text-green-500 mr-2">
+              <label for="issue6" class="text-gray-700">Hard Drive Failure</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Description -->
+        <div class="mt-6">
+          <label class="block text-gray-700 font-semibold">Description *</label>
+          <textarea id="description" name="issue_des" placeholder="Provide a brief description of the issues"
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+            required></textarea>
+        </div>
+      </div>
+
+      <!-- Estimate Charges -->
+      <div class="mb-8">
+        <h2 class="text-2xl font-bold text-gray-800">Estimate Charges</h2>
+        <div class="estimate-box bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-bold text-gray-800">Free Pickup & Drop</h3>
+          <p class="mt-2 text-gray-600">If you're unsure about the issue, an engineer will inspect and diagnose your laptop at home. Cost of spare parts is not covered in the service.</p>
+          <div class="flex mt-4 space-x-4">
+            <span class="bg-green-100 text-green-600 py-1 px-3 rounded-full text-sm">1 Hr</span>
+            <span class="bg-gray-100 text-gray-600 py-1 px-3 rounded-full text-sm">No Warranty</span>
+          </div>
+          <div class="mt-4 text-xl font-bold text-green-600">Starts ₹149</div>
+        </div>
+      </div>
+
+      <!-- Customer Information -->
+      <div class="mb-8">
+        <h2 class="text-2xl font-bold text-gray-800">Customer Information</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {% comment %} <div>
+            <label class="block text-gray-700 font-semibold">Email Address *</label>
+            <input type="email" id="emailAddress" name="c_email" placeholder="Your Email"
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+              required>
+          </div> {% endcomment %}
+        </div>
+
+      
+
+        <!-- Date and Time Selection -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+          <!-- Date Field -->
+          <div>
+            <label class="block text-gray-700 font-semibold">Preferred Date *</label>
+            <input type="date" id="date" name="date"
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+              required>
+          </div>
+
+          <!-- Time Field -->
+          <div>
+            <label class="block text-gray-700 font-semibold">Preferred Time *</label>
+            <input type="time" id="time" name="time"
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+              required>
+          </div>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="text-right mt-6">
+        <button type="submit" class="px-6 py-3 btn-submit text-white rounded-lg">Submit</button>
+      </div>
+    </form>
+    
+
+
+    
+  </div>
+</body>
+
+</html>
