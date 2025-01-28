@@ -1,5 +1,13 @@
 from django.db import models
 
+from django.contrib.auth.models import User
+
+class CustomerDetails(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    customer_name = models.CharField(max_length=100)
+    address = models.TextField()
+    phone = models.CharField(max_length=10)
+        
 # Create your models here.
 # When you create a custom user model by subclassing AbstractUser (like your CustomUser model), the auth_user table is no longer used by Django for storing user data. Instead, Django will use the table corresponding to your custom model (e.g., CustomUser), which you defined.
 
@@ -38,3 +46,5 @@ from django.db import models
 # Once you’ve done this, Django will use the CustomUser model and its corresponding table instead of auth_user.
 
 # Let me know if you need any more clarification on this!
+
+
